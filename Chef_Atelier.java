@@ -5,8 +5,9 @@ public class Chef_Atelier extends Personne {
     private Date dateExperience;
     private Date datePromotion;
     private Statut statut;
+    private static Chef_Atelier instance;
 
-    public Chef_Atelier (int nbExperience, Date dateExperience, Date datePromotion, Statut statut) {
+    private Chef_Atelier(int nbExperience, Date dateExperience, Date datePromotion, Statut statut) {
         super.nom = "Chef";
         super.prenom = "Atelier";
         super.email = "chef.atelier@entreprise.com";
@@ -18,7 +19,7 @@ public class Chef_Atelier extends Personne {
         this.statut = statut;
     }
 
-    Chef_Atelier () {
+    private Chef_Atelier() {
         super();
         // Constructeur par défaut
     }
@@ -69,10 +70,15 @@ public class Chef_Atelier extends Personne {
         System.out.println(this.toString());
     }
 
-    public int miseAJourExperience(dateExp: Date) {
-       //???????????????????????
-    }
+    // public int miseAJourExperience(dateExp: Date) {
+    // //???????????????????????
+    // }
 
-    
+    public static Chef_Atelier getInstance(int nbExperience, Date dateExperience, Date datePromotion, Statut statut) {
+        if (instance == null) {
+            instance = new Chef_Atelier(nbExperience, dateExperience, datePromotion, statut);
+        }
+        return instance;
+    }
 
 }
