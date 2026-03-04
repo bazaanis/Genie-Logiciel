@@ -120,7 +120,7 @@ public class Réparation {
         double T = 0;
         while (iter.hasNext()) {
             p = iter.next();
-            T = T + p.calculerMontantPièce();
+            T = T + p.getPrix();
         }
         return T > calculerMontantRéparation();
     }
