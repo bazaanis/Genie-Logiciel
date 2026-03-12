@@ -10,6 +10,7 @@ public class Réparation {
     private int nbHeure;
     private String travaux;
     private Vector<Pièce> listePièceRep = new Vector<Pièce>();
+    private Iterator<Pièce> iter = listePièceRep.iterator();
 
     public Réparation(Date dateRéparation, int nombreHeure, String travaux) {
         this.dateRep = dateRéparation;
@@ -27,7 +28,6 @@ public class Réparation {
     public double calculerMontantRéparation() {
         Pièce p;
         double T = 0;
-        Iterator<Pièce> iter = listePièceRep.iterator();
         while (iter.hasNext()) {
             p = iter.next();
             T = T + p.calculerMontantPièce();
@@ -36,7 +36,6 @@ public class Réparation {
     }
 
     public void ajouterPièce(int réf, String nom, int quantité, double prix) {
-        Iterator<Pièce> iter = listePièceRep.iterator();
         Pièce p;
         while (iter.hasNext()) {
             p = iter.next();
@@ -50,7 +49,6 @@ public class Réparation {
     }
 
     public void ajouterPièce(Pièce p) {
-        Iterator<Pièce> iter = listePièceRep.iterator();
         Pièce p2;
         while (iter.hasNext()) {
             p2 = iter.next();
@@ -63,7 +61,6 @@ public class Réparation {
     }
 
     public void modifierPièce(int réf, String nom, int quantité, double prix) {
-        Iterator<Pièce> iter = listePièceRep.iterator();
         Pièce p;
         while (iter.hasNext()) {
             p = iter.next();
@@ -77,7 +74,6 @@ public class Réparation {
     }
 
     public void modifierPièce(Pièce p) {
-        Iterator<Pièce> iter = listePièceRep.iterator();
         Pièce p2;
         while (iter.hasNext()) {
             p2 = iter.next();
@@ -91,7 +87,6 @@ public class Réparation {
     }
 
     public void supprimerPièce1(int réf) {
-        Iterator<Pièce> iter = listePièceRep.iterator();
         Pièce p;
         while (iter.hasNext()) {
             p = iter.next();
@@ -103,7 +98,6 @@ public class Réparation {
     }
 
     public boolean isDispo(String nom) {
-        Iterator<Pièce> iter = listePièceRep.iterator();
         Pièce p;
         while (iter.hasNext()) {
             p = iter.next();
@@ -115,7 +109,6 @@ public class Réparation {
     }
 
     public boolean estRéformable() {
-        Iterator<Pièce> iter = listePièceRep.iterator();
         Pièce p;
         double T = 0;
         while (iter.hasNext()) {
@@ -126,7 +119,6 @@ public class Réparation {
     }
 
     public void afficherListePièces() {
-        Iterator<Pièce> iter = listePièceRep.iterator();
         Pièce p;
         while (iter.hasNext()) {
             p = iter.next();
