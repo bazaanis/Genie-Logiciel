@@ -29,8 +29,8 @@ public class Réparation {
         Pièce p;
         double T = 0;
         while (iter.hasNext()) {
-            p = iter.next();
-            T = T + p.calculerMontantPièce();
+            // p = ;
+            T += iter.next().calculerMontantPièce();
         }
         return T;
     }

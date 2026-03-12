@@ -1,6 +1,7 @@
 package TP3;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Vector;
 
 public class Equipement {
@@ -9,6 +10,8 @@ public class Equipement {
     private Type typeEquip;
     private Vector<Composant> listeComposants = new Vector<Composant>();
     private Vector<Fournisseur> listeFournisseur = new Vector<Fournisseur>();
+    private Iterator<Composant> iterComp = listeComposants.iterator();
+    private Iterator<Fournisseur> iterFournisseur = listeFournisseur.iterator();
 
     public Equipement(int numSérie, String désignation, Type typeEquip, Vector<Composant> listeComposants) {
         this.numSérie = numSérie;
@@ -62,8 +65,8 @@ public class Equipement {
     }
 
     public void afficherListeComposants() {
-        for (Composant c : listeComposants) {
-            System.out.println(c);
+        while (iterComp.hasNext()) {
+            System.out.println(iterComp.next());
         }
     }
 
